@@ -1,7 +1,17 @@
 {
   "extends": "react-app",
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "react"],
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "eol-last": "error"
   }
 }
