@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Article() {
+function Articles() {
   const [data, setData] = useState({hits: []});
 
   return (
@@ -14,4 +14,4 @@ function Article() {
   );
 }
 
-export default Article;
+export default Articles;
