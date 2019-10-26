@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Articles from './Components/Articles';
+import Todo from './Components/Todo';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Articles />
+      <Todo />
     </div>
   );
 }
