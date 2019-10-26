@@ -1,11 +1,14 @@
 {
   "extends": "react-app",
-  "plugins": ["prettier", "react"],
-  "env": {
-    "es6": true
-  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "prettier/@typescript-eslint/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
@@ -13,5 +16,10 @@
   "rules": {
     "prettier/prettier": "error",
     "eol-last": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
