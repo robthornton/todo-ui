@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+#typescript
+*.d.ts
+
 # testing
 /coverage
 
