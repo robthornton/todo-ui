@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
-interface WithTodoProps {
+export interface WithTodoProps {
+  id?: number;
   task?: string;
   completed?: boolean;
 }
