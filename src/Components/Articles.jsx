@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 
+/*
+ * This code was just part of an example/tutorial. Probably best to ignore or
+ * delete it.
+ */
+
 const useDataqApi = (initialUrl, initialData) => {
   const [data, setData] = useState(initialData);
 
