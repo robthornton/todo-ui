@@ -5,12 +5,14 @@ interface WithTodoProps {
   completed: boolean;
 }
 
-function Todo({task, completed}: WithTodoProps) {
+function Todo({task, completed}: WithTodoProps): React.ReactElement {
   return (
     <div className="todo">
-      <input type="text" className={completed && 'completed'}>
-        {task}
-      </input>
+      <input
+        type="text"
+        className={completed ? 'completed' : undefined}
+        value={task}
+      />
     </div>
   );
 }
