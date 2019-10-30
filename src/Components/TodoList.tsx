@@ -1,14 +1,14 @@
 import React from 'react';
-import Todo, {WithTodoProps} from './Todo';
+import Todo, {TodoProps} from './Todo';
 
 interface WithTodoListProps {
-  todos: Array<WithTodoProps>;
+  todos: Array<TodoProps>;
 }
 
 function TodoList({todos}: WithTodoListProps): React.ReactElement {
   return (
     <ul>
-      {todos.map((todo: WithTodoProps) => (
+      {todos.map((todo: TodoProps) => (
         <li key={todo.id}>
           <Todo />
         </li>

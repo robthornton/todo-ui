@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
-export interface WithTodoProps {
+export interface TodoProps {
   id?: number;
   task?: string;
   completed?: boolean;
 }
 
-function Todo({task, completed}: WithTodoProps): React.ReactElement {
+function Todo({task, completed}: TodoProps): React.ReactElement {
   const [text, setText] = useState(task);
 
   return (
