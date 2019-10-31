@@ -1,5 +1,5 @@
 {
-  "extends": "react-app",
+  "extends": "react",
   "plugins": [
     "react",
     "@typescript-eslint",
