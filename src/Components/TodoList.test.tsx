@@ -14,20 +14,26 @@ afterEach(() => {
   container.remove();
 });
 
-test('renders without crashing', () => {
-  act(() => {
-    create(<TaskList todos={[{id: 0, task: 'Example', completed: true}]} />);
+describe('TodoList component', () => {
+  const tasks = [
+    {id: 0, task: 'Example 0', completed: false},
+    {id: 1, task: 'Example 1', completed: true},
+    {id: 2, task: 'Example 2', completed: false}
+  ];
+
+  it('renders without crashing', () => {
+    act(() => {
+      render(<TaskList todos={tasks.slice(0, 1)} />, container);
+    });
+    const ul = container.getElementsByTagName('ul')[0];
+    expect(ul.children).toHaveLength(1);
   });
-});
 
-test('renders list with one Task', () => {
-  let component: ;
-
-  act(() => {
-    component = create(
-      <TaskList todos={[{id: 0, task: 'Example', completed: true}]} />
-    );
+  it('renders three todos', () => {
+    act(() => {
+      render(<TaskList todos={tasks} />, container);
+    });
+    const ul = container.getElementsByTagName('ul')[0];
+    expect(ul.children).toHaveLength(3);
   });
-
-  // expect(component.find('li')).to.have.length(1);
 });
