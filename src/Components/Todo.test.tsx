@@ -19,7 +19,7 @@ describe('Todo component', () => {
     act(() => {
       render(<Todo />, container);
     });
-    expect(container.textContent).toBe('');
+    expect(container.children).toHaveLength(1);
   });
 
   it('renders with input text', () => {
