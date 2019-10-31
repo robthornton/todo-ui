@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Todo.css';
 
 export interface TodoProps {
   id?: number;
@@ -17,6 +18,20 @@ function Todo({task, completed}: TodoProps): React.ReactElement {
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
+      <button
+        type="button"
+        className="primary-button"
+        onChange={(event) => console.log('complete event')}
+      >
+        Complete
+      </button>
+      <button
+        type="button"
+        className="secondary-button"
+        onChange={(event) => console.log('delete event')}
+      >
+        Delete
+      </button>
     </div>
   );
 }
