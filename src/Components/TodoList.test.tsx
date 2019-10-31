@@ -23,10 +23,18 @@ describe('TodoList component', () => {
 
   it('renders without crashing', () => {
     act(() => {
-      render(<TaskList todos={tasks.slice(0, 1)} />, container);
+      render(<TaskList todos={[]} />, container);
     });
     const listItems = container.querySelectorAll('li');
-    expect(listItems).toHaveLength(1);
+    expect(listItems).toHaveLength(0);
+  });
+
+  it('list has correct class', () => {
+    act(() => {
+      render(<TaskList todos={[]} />, container);
+    });
+    const ul = container.querySelector('ul');
+    expect(ul !== null ? ul.classList.contains('task-list') : false).toBe(true);
   });
 
   it('renders three todos', () => {

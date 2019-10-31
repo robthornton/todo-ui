@@ -7,10 +7,10 @@ interface WithTodoListProps {
 
 function TodoList({todos}: WithTodoListProps): React.ReactElement {
   return (
-    <ul>
+    <ul className="task-list">
       {todos.map((todo: TodoProps) => (
         <li key={todo.id}>
-          <Todo />
+          <Todo task={todo.task} completed={todo.completed} />
         </li>
       ))}
     </ul>
