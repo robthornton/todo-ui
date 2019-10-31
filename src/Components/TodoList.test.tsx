@@ -25,15 +25,15 @@ describe('TodoList component', () => {
     act(() => {
       render(<TaskList todos={tasks.slice(0, 1)} />, container);
     });
-    const ul = container.getElementsByTagName('ul')[0];
-    expect(ul.children).toHaveLength(1);
+    const listItems = container.querySelectorAll('li');
+    expect(listItems).toHaveLength(1);
   });
 
   it('renders three todos', () => {
     act(() => {
       render(<TaskList todos={tasks} />, container);
     });
-    const ul = container.getElementsByTagName('ul')[0];
-    expect(ul.children).toHaveLength(3);
+    const listItems = container.querySelectorAll('li');
+    expect(listItems).toHaveLength(3);
   });
 });
