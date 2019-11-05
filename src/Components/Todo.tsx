@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import './Todo.css';
 
+export type TodoDeleteCallback = () => void;
+
 export interface TodoProps {
-  id?: number;
   task?: string;
   completed?: boolean;
+  deleteAction?: TodoDeleteCallback;
 }
 
-function Todo({task, completed}: TodoProps): React.ReactElement {
+function Todo({task, completed, deleteAction}: TodoProps): React.ReactElement {
   const [text, setText] = useState(task);
   const [complete, setComplete] = useState(completed);
 
@@ -29,7 +31,9 @@ function Todo({task, completed}: TodoProps): React.ReactElement {
       <button
         type="button"
         className="delete secondary-button"
-        onClick={(event) => console.log('delete event')}
+        onClick={() => {
+          if (deleteAction) deleteAction();
+        }}
       >
         Delete
       </button>
