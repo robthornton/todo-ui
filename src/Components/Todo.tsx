@@ -9,26 +9,27 @@ export interface TodoProps {
 
 function Todo({task, completed}: TodoProps): React.ReactElement {
   const [text, setText] = useState(task);
+  const [complete, setComplete] = useState(completed);
 
   return (
     <div className="todo">
       <input
         type="text"
-        className={completed ? 'completed' : undefined}
+        className={complete ? 'completed' : undefined}
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
       <button
         type="button"
-        className="primary-button"
-        onChange={(event) => console.log('complete event')}
+        className="complete primary-button"
+        onClick={() => setComplete(!complete)}
       >
         Complete
       </button>
       <button
         type="button"
-        className="secondary-button"
-        onChange={(event) => console.log('delete event')}
+        className="delete secondary-button"
+        onClick={(event) => console.log('delete event')}
       >
         Delete
       </button>
