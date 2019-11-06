@@ -1,18 +1,6 @@
 import React from 'react';
+import {render, shallow} from 'enzyme';
 import TaskList from './TodoList';
-import {render, unmountComponentAtNode} from 'react-dom';
-import {act} from 'react-dom/test-utils';
-
-let container: HTMLElement;
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-});
 
 describe('TodoList component', () => {
   const tasks = [
@@ -21,27 +9,27 @@ describe('TodoList component', () => {
     {id: 2, task: 'Example 2', completed: false}
   ];
 
-  it('renders without crashing', () => {
-    act(() => {
-      render(<TaskList todos={[]} />, container);
-    });
-    const listItems = container.querySelectorAll('li');
+  it('renders without crashing without items', () => {
+    const wrapper = render(<TaskList todos={[]} />);
+    const listItems = wrapper.find('li');
     expect(listItems).toHaveLength(0);
   });
 
-  it('list has correct class', () => {
-    act(() => {
-      render(<TaskList todos={[]} />, container);
-    });
-    const ul = container.querySelector('ul');
-    expect(ul !== null ? ul.classList.contains('task-list') : false).toBe(true);
+  it('list has "task-list" class', () => {
+    const wrapper = shallow(<TaskList todos={[]} />);
+    const ul = wrapper.find('ul');
+    expect(ul.hasClass('task-list')).toBe(true);
   });
 
-  it('renders three todos', () => {
-    act(() => {
-      render(<TaskList todos={tasks} />, container);
-    });
-    const listItems = container.querySelectorAll('li');
+  it('should have three todos', () => {
+    const wrapper = render(<TaskList todos={tasks} />);
+    const listItems = wrapper.find('li');
+    expect(listItems).toHaveLength(3);
+  });
+
+  it('should have two todos after deleting one', () => {
+    const wrapper = render(<TaskList todos={tasks} />);
+    const listItems = wrapper.find('li');
     expect(listItems).toHaveLength(3);
   });
 });
