@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Todo.css';
 
-export type TodoDeleteCallback = () => void;
+export type TodoDeleteCallback = (id: number) => void;
 
 export interface TodoProps {
   id?: number;
@@ -36,7 +36,7 @@ function Todo(
         type="button"
         className="delete secondary-button"
         onClick={() => {
-          if (deleteAction) deleteAction();
+          if (deleteAction) deleteAction(id || 0);
         }}
       >
         Delete
