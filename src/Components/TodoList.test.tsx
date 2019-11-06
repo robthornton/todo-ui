@@ -9,7 +9,7 @@ describe('TodoList component', () => {
     {id: 2, task: 'Example 2', completed: false}
   ];
 
-  it('renders without crashing without items', () => {
+  it('renders without crashing', () => {
     const wrapper = render(<TaskList todos={[]} />);
     const listItems = wrapper.find('li');
     expect(listItems).toHaveLength(0);
