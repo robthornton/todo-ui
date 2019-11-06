@@ -1,34 +1,33 @@
 import React, {useState} from 'react';
 import './Todo.css';
 
-export type TodoDeleteCallback = (id: number) => void;
+export type TodoCallback = (id: number) => void;
 
-export interface TodoProps {
-  id?: number;
-  task?: string;
+export interface Todo {
+  id: number;
+  task: string;
   completed?: boolean;
-  deleteAction?: TodoDeleteCallback;
+}
+export interface TodoProps {
+  todo: Todo;
+  completeAction: TodoCallback;
+  deleteAction: TodoCallback;
 }
 
-function Todo(
-  {id, task, completed, deleteAction}: TodoProps = {id: 0}
-): React.ReactElement {
-  const [text, setText] = useState(task);
-  const [complete, setComplete] = useState(completed);
-
+function Todo({
+  todo,
+  completeAction,
+  deleteAction
+}: TodoProps): React.ReactElement {
   return (
     <div className="todo">
-      <input
-        type="text"
-        name={`todo[${id || 0}]`}
-        className={complete ? 'completed' : undefined}
-        value={text}
-        onChange={(event) => setText(event.target.value)}
-      />
+      <span className={todo.completed ? 'completed' : undefined}>
+        {todo.task}
+      </span>
       <button
         type="button"
         className="complete primary-button"
-        onClick={() => setComplete(!complete)}
+        onClick={() => completeAction(todo.id)}
       >
         Complete
       </button>
@@ -36,7 +35,7 @@ function Todo(
         type="button"
         className="delete secondary-button"
         onClick={() => {
-          if (deleteAction) deleteAction(id || 0);
+          if (deleteAction) deleteAction(todo.id);
         }}
       >
         Delete
