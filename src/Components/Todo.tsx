@@ -20,7 +20,7 @@ function TodoItem({
   deleteAction
 }: TodoItemProps): React.ReactElement {
   return (
-    <div className="todo">
+    <li className="todo">
       <span className={todo.completed ? 'completed' : undefined}>
         {todo.task}
       </span>
@@ -40,7 +40,7 @@ function TodoItem({
       >
         Delete
       </button>
-    </div>
+    </li>
   );
 }
 
