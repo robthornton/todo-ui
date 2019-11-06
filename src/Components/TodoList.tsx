@@ -1,18 +1,21 @@
 import React from 'react';
-import Todo, {TodoProps} from './Todo';
+import TodoItem, {Todo, TodoItemProps} from './Todo';
 import './TodoList.css';
 
-interface WithTodoListProps {
-  todos: Array<TodoProps>;
+export interface TodoListProps {
+  todos: Array<Todo>;
 }
 
-function TodoList({todos}: WithTodoListProps): React.ReactElement {
+function TodoList({todos}: TodoListProps): React.ReactElement {
   return (
     <ul className="task-list">
-      {todos.map((todo: TodoProps) => (
-        <li key={todo.id}>
-          <Todo task={todo.task} completed={todo.completed} />
-        </li>
+      {todos.map((todo: Todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          completeAction={() => {}}
+          deleteAction={() => {}}
+        />
       ))}
     </ul>
   );
