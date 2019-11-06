@@ -8,17 +8,17 @@ export interface Todo {
   task: string;
   completed?: boolean;
 }
-export interface TodoProps {
+export interface TodoItemProps {
   todo: Todo;
   completeAction: TodoCallback;
   deleteAction: TodoCallback;
 }
 
-function Todo({
+function TodoItem({
   todo,
   completeAction,
   deleteAction
-}: TodoProps): React.ReactElement {
+}: TodoItemProps): React.ReactElement {
   return (
     <div className="todo">
       <span className={todo.completed ? 'completed' : undefined}>
@@ -44,4 +44,4 @@ function Todo({
   );
 }
 
-export default Todo;
+export default TodoItem;
