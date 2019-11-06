@@ -40,4 +40,12 @@ describe('Todo component', () => {
     completeButton.simulate('click');
     expect(deleteFunction).toHaveBeenCalled();
   });
+
+  it('should use callback when complete button is clicked', () => {
+    const callback = jest.fn();
+    const wrapper = mount(<Todo completedAction={callback} />);
+    const completeButton = wrapper.find('button.complete');
+    completeButton.simulate('click');
+    expect(callback).toHaveBeenCalled();
+  });
 });
