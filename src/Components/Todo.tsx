@@ -4,12 +4,15 @@ import './Todo.css';
 export type TodoDeleteCallback = () => void;
 
 export interface TodoProps {
+  id?: number;
   task?: string;
   completed?: boolean;
   deleteAction?: TodoDeleteCallback;
 }
 
-function Todo({task, completed, deleteAction}: TodoProps): React.ReactElement {
+function Todo(
+  {id, task, completed, deleteAction}: TodoProps = {id: 0}
+): React.ReactElement {
   const [text, setText] = useState(task);
   const [complete, setComplete] = useState(completed);
 
@@ -17,6 +20,7 @@ function Todo({task, completed, deleteAction}: TodoProps): React.ReactElement {
     <div className="todo">
       <input
         type="text"
+        name={`todo[${id || 0}]`}
         className={complete ? 'completed' : undefined}
         value={text}
         onChange={(event) => setText(event.target.value)}
