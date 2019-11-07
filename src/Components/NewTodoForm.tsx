@@ -1,4 +1,5 @@
 import React, {useState, ChangeEvent} from 'react';
+import './NewTodoForm.css';
 
 export type CreateCallback = (input: string) => void;
 
@@ -10,7 +11,7 @@ function NewTodoForm({createAction}: NewTodoFormProps): JSX.Element {
   const [text, setText] = useState('');
 
   return (
-    <div>
+    <div className="new-todo-form">
       <input
         value={text}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {

@@ -7,6 +7,12 @@ describe('todo form component', () => {
     expect(render(<NewTodoForm createAction={() => {}} />)).toBeTruthy();
   });
 
+  it('should have new-todo-form class', () => {
+    const wrapper = shallow(<NewTodoForm createAction={() => {}} />);
+    const div = wrapper.find('div');
+    expect(div.hasClass('new-todo-form')).toBe(true);
+  });
+
   it('should have an input element', () => {
     const wrapper = shallow(<NewTodoForm createAction={() => {}} />);
     const input = wrapper.find('input');
