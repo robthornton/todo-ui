@@ -21,9 +21,9 @@ function TodoItem({
 }: TodoItemProps): React.ReactElement {
   return (
     <li className="todo">
-      <span className={todo.completed ? 'completed' : undefined}>
+      <div className={todo.completed ? 'completed' : undefined}>
         {todo.task}
-      </span>
+      </div>
       <button
         type="button"
         className="complete primary-button"

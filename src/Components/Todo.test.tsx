@@ -21,7 +21,7 @@ describe('Todo component', () => {
     const wrapper = shallow(
       <TodoItem todo={todo} completeAction={() => {}} deleteAction={() => {}} />
     );
-    const input = wrapper.find('span');
+    const input = wrapper.find('div');
     expect(input.text()).toBe('Example');
   });
 
@@ -29,7 +29,7 @@ describe('Todo component', () => {
     const wrapper = shallow(
       <TodoItem todo={todo} completeAction={() => {}} deleteAction={() => {}} />
     );
-    const input = wrapper.find('span');
+    const input = wrapper.find('div');
     expect(input.hasClass('completed')).toBe(true);
   });
 
