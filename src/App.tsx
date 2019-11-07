@@ -14,6 +14,8 @@ function App() {
           {id: 0, task: 'Example text', completed: false},
           {id: 1, task: 'Example text 2', completed: true}
         ]}
+        completeAction={() => {}}
+        deleteAction={() => {}}
       />
     </div>
   );

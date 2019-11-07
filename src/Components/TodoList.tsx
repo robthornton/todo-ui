@@ -1,20 +1,27 @@
 import React from 'react';
-import TodoItem, {Todo, TodoItemProps} from './Todo';
+import TodoItem from './Todo';
+import {Todo, TodoCallback} from '../Types/Todo';
 import './TodoList.css';
 
 export interface TodoListProps {
   todos: Array<Todo>;
+  completeAction: TodoCallback;
+  deleteAction: TodoCallback;
 }
 
-function TodoList({todos}: TodoListProps): React.ReactElement {
+function TodoList({
+  todos,
+  completeAction,
+  deleteAction
+}: TodoListProps): React.ReactElement {
   return (
     <ul className="task-list">
       {todos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
-          completeAction={() => {}}
-          deleteAction={() => {}}
+          completeAction={completeAction}
+          deleteAction={deleteAction}
         />
       ))}
     </ul>
