@@ -1,13 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {Todo, TodoCallback} from '../Types/Todo';
 import './Todo.css';
 
-export type TodoCallback = (id: number) => void;
-
-export interface Todo {
-  id: number;
-  task: string;
-  completed?: boolean;
-}
 export interface TodoItemProps {
   todo: Todo;
   completeAction: TodoCallback;
