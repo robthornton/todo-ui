@@ -1,11 +1,12 @@
 import React from 'react';
-import {Todo, TodoCallback} from '../Types/Todo';
+
+import {Todo, CompleteCallback, DeleteCallback} from '../types';
 import './Todo.css';
 
 export interface TodoItemProps {
   todo: Todo;
-  completeAction: TodoCallback;
-  deleteAction: TodoCallback;
+  completeAction: CompleteCallback;
+  deleteAction: DeleteCallback;
 }
 
 function TodoItem({

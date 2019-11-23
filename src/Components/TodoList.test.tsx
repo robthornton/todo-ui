@@ -1,5 +1,6 @@
 import React from 'react';
 import {render, shallow} from 'enzyme';
+
 import TaskList from './TodoList';
 
 describe('TodoList component', () => {
