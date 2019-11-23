@@ -1,5 +1,6 @@
 import React from 'react';
 import {render, shallow} from 'enzyme';
+
 import Title from './Title';
 
 describe('title component', () => {
