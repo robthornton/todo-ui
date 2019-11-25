@@ -1,21 +1,45 @@
-import React from 'react';
-import TodoList from './Components/TodoList';
-import './App.css';
-import Title from './Components/Title';
-import NewTodoForm from './Components/NewTodoForm';
+import React, {useState, useEffect} from 'react';
+import TodoList from './components/TodoList';
+import Title from './components/Title';
+import NewTodoForm from './components/NewTodoForm';
 
-function App() {
+import './App.css';
+import {Todo, TodoAPI} from './types';
+
+export interface AppProps {
+  api: TodoAPI;
+}
+
+function App({api}: AppProps) {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [sync, setSync] = useState(true);
+
+  async function completeTodo(id: number) {
+    api.complete(id);
+    setSync(true);
+  }
+
+  async function deleteTodo(id: number) {
+    api.remove(id);
+    setSync(true);
+  }
+
+  useEffect(() => {
+    async function fetchTodos() {
+      setTodos(await api.fetchAll());
+    }
+
+    fetchTodos();
+  }, [sync, api]);
+
   return (
     <div className="App">
       <Title text="To-do" />
       <NewTodoForm createAction={() => {}} />
       <TodoList
-        todos={[
-          {id: 0, task: 'Example text', completed: false},
-          {id: 1, task: 'Example text 2', completed: true}
-        ]}
-        completeAction={() => {}}
-        deleteAction={() => {}}
+        todos={todos}
+        completeAction={completeTodo}
+        deleteAction={deleteTodo}
       />
     </div>
   );
