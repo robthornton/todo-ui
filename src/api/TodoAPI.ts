@@ -1,13 +1,23 @@
 import {TodoAPI, Todo} from '../types';
 
 export class FetchAPI implements TodoAPI {
+  async add(todo: Todo) {
+    await fetch('http://localhost:8080/todos', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(todo)
+    });
+  }
+
   async complete(id: number) {
-    await fetch('http://localhost:8080/todos/complete', {
+    await fetch('http://localhost:8080/todos', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(id)
+      body: JSON.stringify({id, complete: true})
     });
   }
 
@@ -22,8 +32,10 @@ export class FetchAPI implements TodoAPI {
   }
 
   async fetchAll(): Promise<Todo[]> {
-    return fetch('http://localhost:8080/todos').then((response) =>
-      response.json()
-    );
+    return fetch('http://localhost:8080/todos')
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }

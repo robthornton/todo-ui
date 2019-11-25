@@ -5,6 +5,7 @@ export interface Todo {
 }
 
 export interface TodoAPI {
+  add(todo: Todo): void;
   complete(id: number): void;
   fetchAll(): Promise<Todo[]>;
   remove(id: number): void;
