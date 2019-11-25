@@ -32,10 +32,8 @@ export class FetchAPI implements TodoAPI {
   }
 
   async fetchAll(): Promise<Todo[]> {
-    return fetch('http://localhost:8080/todos')
-      .then((response) => response.json())
-      .catch((error) => {
-        console.error(error);
-      });
+    return fetch('http://localhost:8080/todos').then((response) =>
+      response.json()
+    );
   }
 }
