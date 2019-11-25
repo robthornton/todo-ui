@@ -35,7 +35,7 @@ function App({api}: AppProps) {
   return (
     <div className="App">
       <Title text="To-do" />
-      <NewTodoForm createAction={() => {}} />
+      <NewTodoForm createAction={api.add} />
       <TodoList
         todos={todos}
         completeAction={completeTodo}
