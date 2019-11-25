@@ -1,7 +1,7 @@
 import {TodoAPI, Todo} from '../types';
 
 export class FetchAPI implements TodoAPI {
-  async add(todo: Todo) {
+  async add(todo: string) {
     await fetch('http://localhost:8080/todos', {
       method: 'PUT',
       headers: {

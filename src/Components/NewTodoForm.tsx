@@ -1,8 +1,7 @@
 import React, {useState, ChangeEvent} from 'react';
 
+import {CreateCallback} from '../types';
 import './NewTodoForm.css';
-
-export type CreateCallback = (input: string) => void;
 
 export interface NewTodoFormProps {
   createAction: CreateCallback;

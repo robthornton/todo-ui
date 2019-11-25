@@ -5,11 +5,12 @@ export interface Todo {
 }
 
 export interface TodoAPI {
-  add(todo: Todo): void;
+  add(todo: string): void;
   complete(id: number): void;
   fetchAll(): Promise<Todo[]>;
   remove(id: number): void;
 }
 
+export type CreateCallback = (todo: string) => void;
 export type CompleteCallback = (id: number) => void;
 export type DeleteCallback = (id: number) => void;
