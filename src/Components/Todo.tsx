@@ -22,7 +22,7 @@ function TodoItem({
       <button
         type="button"
         className="complete primary-button"
-        onClick={() => completeAction(todo.id)}
+        onClick={() => completeAction(todo)}
       >
         Complete
       </button>

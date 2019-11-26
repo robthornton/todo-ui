@@ -11,13 +11,13 @@ export class FetchAPI implements TodoAPI {
     });
   }
 
-  async complete(id: number) {
+  async update(todo: Todo) {
     await fetch('http://localhost:8080/todos', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({id, complete: true})
+      body: JSON.stringify(todo)
     });
   }
 

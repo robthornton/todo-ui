@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import TodoList from './components/TodoList';
 import Title from './components/Title';
 import NewTodoForm from './components/NewTodoForm';
@@ -12,33 +12,30 @@ export interface AppProps {
 
 function App({api}: AppProps) {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [sync, setSync] = useState(true);
 
   async function addTodo(todo: Todo) {
     await api.add(todo);
-    setSync(true);
+    await fetchTodos();
   }
 
-  async function completeTodo(id: number) {
-    await api.complete(id);
-    setSync(true);
+  async function completeTodo(todo: Todo) {
+    todo.completed = !todo.completed;
+    await api.update(todo);
+    await fetchTodos();
   }
 
   async function deleteTodo(id: number) {
     await api.remove(id);
-    setSync(true);
+    await fetchTodos();
   }
 
-  useEffect(() => {
-    async function fetchTodos() {
-      setTodos(await api.fetchAll());
-    }
+  const fetchTodos = useCallback(async () => {
+    setTodos(await api.fetchAll());
+  }, [api]);
 
-    if (sync) {
-      fetchTodos();
-      setSync(false);
-    }
-  }, [sync, api]);
+  useEffect(() => {
+    fetchTodos();
+  }, [fetchTodos]);
 
   return (
     <div className="App">
