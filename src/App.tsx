@@ -14,13 +14,18 @@ function App({api}: AppProps) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [sync, setSync] = useState(true);
 
-  function completeTodo(id: number) {
-    api.complete(id);
+  async function addTodo(todo: Todo) {
+    await api.add(todo);
     setSync(true);
   }
 
-  function deleteTodo(id: number) {
-    api.remove(id);
+  async function completeTodo(id: number) {
+    await api.complete(id);
+    setSync(true);
+  }
+
+  async function deleteTodo(id: number) {
+    await api.remove(id);
     setSync(true);
   }
 
@@ -29,13 +34,16 @@ function App({api}: AppProps) {
       setTodos(await api.fetchAll());
     }
 
-    fetchTodos();
+    if (sync) {
+      fetchTodos();
+      setSync(false);
+    }
   }, [sync, api]);
 
   return (
     <div className="App">
       <Title text="To-do" />
-      <NewTodoForm createAction={api.add} />
+      <NewTodoForm createAction={addTodo} />
       <TodoList
         todos={todos}
         completeAction={completeTodo}
