@@ -1,7 +1,7 @@
 import {TodoAPI, Todo} from '../types';
 
 export class FetchAPI implements TodoAPI {
-  async add(todo: string) {
+  async add(todo: Todo) {
     await fetch('http://localhost:8080/todos', {
       method: 'POST',
       headers: {
@@ -31,7 +31,7 @@ export class FetchAPI implements TodoAPI {
     });
   }
 
-  async fetchAll(): Promise<Todo[]> {
+  fetchAll(): Promise<Todo[]> {
     return fetch('http://localhost:8080/todos').then((response) =>
       response.json()
     );
