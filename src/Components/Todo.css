@@ -4,6 +4,6 @@
   overflow: hidden;
 }
 
-.todo span.completed {
+.todo div.completed {
   text-decoration: line-through;
 }
