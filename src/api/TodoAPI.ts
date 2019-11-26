@@ -3,7 +3,7 @@ import {TodoAPI, Todo} from '../types';
 export class FetchAPI implements TodoAPI {
   async add(todo: string) {
     await fetch('http://localhost:8080/todos', {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -13,7 +13,7 @@ export class FetchAPI implements TodoAPI {
 
   async complete(id: number) {
     await fetch('http://localhost:8080/todos', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
