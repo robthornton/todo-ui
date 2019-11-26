@@ -21,7 +21,7 @@ function NewTodoForm({createAction}: NewTodoFormProps): JSX.Element {
       <button
         type="button"
         onClick={() => {
-          createAction(text);
+          createAction({id: 0, task: text});
         }}
       >
         Create
