@@ -14,12 +14,12 @@ function App({api}: AppProps) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [sync, setSync] = useState(true);
 
-  async function completeTodo(id: number) {
+  function completeTodo(id: number) {
     api.complete(id);
     setSync(true);
   }
 
-  async function deleteTodo(id: number) {
+  function deleteTodo(id: number) {
     api.remove(id);
     setSync(true);
   }
