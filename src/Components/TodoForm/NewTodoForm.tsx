@@ -1,6 +1,6 @@
 import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 
-import {CreateCallback} from '../types';
+import {CreateCallback} from '../../types';
 import './NewTodoForm.css';
 
 export interface NewTodoFormProps {
