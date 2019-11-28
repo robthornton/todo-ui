@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Todo, CompleteCallback, DeleteCallback} from '../types';
+import {Todo, CompleteCallback, DeleteCallback} from '../../../types';
 import './Todo.css';
 
 export interface TodoItemProps {
