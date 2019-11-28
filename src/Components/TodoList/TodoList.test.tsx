@@ -26,7 +26,7 @@ describe('TodoList component', () => {
   it('renders with no list items with an empty list', () => {
     const completeFunction = jest.fn();
     const deleteFunction = jest.fn();
-    const wrapper = shallow(
+    const wrapper = render(
       <TodoList
         todos={[]}
         completeAction={completeFunction}
@@ -54,7 +54,7 @@ describe('TodoList component', () => {
   it('should have three todos', () => {
     const completeFunction = jest.fn();
     const deleteFunction = jest.fn();
-    const wrapper = shallow(
+    const wrapper = render(
       <TodoList
         todos={tasks}
         completeAction={completeFunction}
