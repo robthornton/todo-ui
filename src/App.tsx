@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {NewTodoForm, Title, TodoList} from './components';
+import {TodoForm, Title, TodoList} from './components';
 
 import './App.css';
 import {Todo, TodoAPI} from './types';
@@ -38,7 +38,7 @@ function App({api}: AppProps) {
   return (
     <div className="App">
       <Title text="To-do" />
-      <NewTodoForm createAction={addTodo} />
+      <TodoForm createAction={addTodo} />
       <TodoList
         todos={todos}
         completeAction={completeTodo}

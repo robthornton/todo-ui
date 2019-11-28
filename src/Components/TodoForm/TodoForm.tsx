@@ -1,13 +1,13 @@
 import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 
 import {CreateCallback} from '../../types';
-import './NewTodoForm.css';
+import './TodoForm.css';
 
-export interface NewTodoFormProps {
+export interface TodoFormProps {
   createAction: CreateCallback;
 }
 
-function NewTodoForm({createAction}: NewTodoFormProps): JSX.Element {
+function TodoForm({createAction}: TodoFormProps): JSX.Element {
   const [text, setText] = useState('');
 
   function submitNewTodo() {
@@ -36,4 +36,4 @@ function NewTodoForm({createAction}: NewTodoFormProps): JSX.Element {
   );
 }
 
-export default NewTodoForm;
+export default TodoForm;

@@ -1,6 +1,6 @@
-import NewTodoForm from './TodoForm/NewTodoForm';
+import TodoForm from './TodoForm/TodoForm';
 import Title from './Title';
 import Todo from './Todo';
 import TodoList from './TodoList';
 
-export {NewTodoForm, Title, Todo, TodoList};
+export {TodoForm, Title, Todo, TodoList};
