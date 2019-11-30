@@ -1,7 +1,7 @@
 import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 
 import {CreateCallback} from '../../types';
-import './TodoForm.css';
+import styles from './TodoForm.module.css';
 
 export interface TodoFormProps {
   createAction: CreateCallback;
@@ -15,9 +15,12 @@ function TodoForm({createAction}: TodoFormProps): JSX.Element {
     setText('');
   }
 
+  console.log(styles);
+
   return (
-    <div className="new-todo-form">
+    <div className={styles.form}>
       <input
+        className={styles.input}
         value={text}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           setText(event.target.value);

@@ -1,8 +1,8 @@
-.new-todo-form {
+.form {
   line-height: 14px;
 }
 
-.new-todo-form input {
+.input {
   width: 294px;
   font-size: 14px;
 }
