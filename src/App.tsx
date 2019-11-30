@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {TodoForm, Title, TodoList} from './components';
 
-import './App.css';
+import styles from './App.module.css';
 import {Todo, TodoAPI} from './types';
 
 export interface AppProps {
@@ -36,7 +36,7 @@ function App({api}: AppProps) {
   }, [fetchTodos]);
 
   return (
-    <div className="App">
+    <div className={styles.body}>
       <Title text="To-do" />
       <TodoForm createAction={addTodo} />
       <TodoList
