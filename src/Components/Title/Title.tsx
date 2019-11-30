@@ -4,12 +4,6 @@ export interface TitleProps {
   text: string;
 }
 
-function Title({text}: TitleProps): JSX.Element {
-  return (
-    <div>
-      <h1>{text}</h1>
-    </div>
-  );
+export function Title({text}: TitleProps): JSX.Element {
+  return <h1>{text}</h1>;
 }
-
-export default Title;
