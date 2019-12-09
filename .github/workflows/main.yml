@@ -3,8 +3,15 @@ name: CI
 on: [push]
 
 jobs:
+    build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+          - name: Run yarn install
+            run: yarn install
     test:
       name: Tests
+      needs: [build]
       runs-on: ubuntu-latest
       steps:
         - name: Run tests
