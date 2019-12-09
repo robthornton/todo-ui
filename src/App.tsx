@@ -38,7 +38,7 @@ function App({api}: AppProps) {
   return (
     <div className={styles.body}>
       <Title text="To-do" />
-      <TodoForm createAction={addTodo} />
+      <TodoForm onCreate={addTodo} />
       <TodoList todos={todos} onComplete={completeTodo} onDelete={deleteTodo} />
     </div>
   );

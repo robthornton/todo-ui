@@ -1,21 +1,21 @@
-import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
+import React, {useState, ChangeEvent, KeyboardEvent, useCallback} from 'react';
 
 import {CreateCallback} from '../../types';
 import styles from './TodoForm.module.css';
 
 export interface TodoFormProps {
-  createAction: CreateCallback;
+  onCreate: CreateCallback;
 }
 
-function TodoForm({createAction}: TodoFormProps): JSX.Element {
+// rename to CreateInput
+function TodoForm({onCreate}: TodoFormProps): JSX.Element {
   const [text, setText] = useState('');
 
+  // handleOnClick vs onCreate vs onSubmit
   function submitNewTodo() {
-    createAction({id: 0, task: text});
+    onCreate({id: 0, task: text});
     setText('');
   }
-
-  console.log(styles);
 
   return (
     <div className={styles.form}>

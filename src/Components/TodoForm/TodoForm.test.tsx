@@ -5,26 +5,26 @@ import TodoForm from './TodoForm';
 
 describe('todo form component', () => {
   it('should render without errors', () => {
-    expect(render(<TodoForm createAction={() => {}} />)).toBeTruthy();
+    expect(render(<TodoForm onCreate={() => {}} />)).toBeTruthy();
   });
 
   it('should have new-todo-form class', () => {
-    const wrapper = shallow(<TodoForm createAction={() => {}} />);
+    const wrapper = shallow(<TodoForm onCreate={() => {}} />);
     const div = wrapper.find('div');
     expect(div.hasClass('new-todo-form')).toBe(true);
   });
 
   it('should have an input element', () => {
-    const wrapper = shallow(<TodoForm createAction={() => {}} />);
+    const wrapper = shallow(<TodoForm onCreate={() => {}} />);
     const input = wrapper.find('input');
     expect(input.exists()).toBe(true);
   });
 
   it('should call create action on submit', () => {
-    const createAction = jest.fn();
-    const wrapper = shallow(<TodoForm createAction={createAction} />);
+    const onCreate = jest.fn();
+    const wrapper = shallow(<TodoForm onCreate={onCreate} />);
     const button = wrapper.find('button');
     button.simulate('click');
-    expect(createAction).toHaveBeenCalled();
+    expect(onCreate).toHaveBeenCalled();
   });
 });
