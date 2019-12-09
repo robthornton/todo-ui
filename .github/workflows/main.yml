@@ -3,12 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      test:
+    test:
       name: Tests
       runs-on: ubuntu-latest
       steps:
