@@ -8,12 +8,6 @@ describe('todo form component', () => {
     expect(render(<TodoForm onCreate={() => {}} />)).toBeTruthy();
   });
 
-  it('should have new-todo-form class', () => {
-    const wrapper = shallow(<TodoForm onCreate={() => {}} />);
-    const div = wrapper.find('div');
-    expect(div.hasClass('new-todo-form')).toBe(true);
-  });
-
   it('should have an input element', () => {
     const wrapper = shallow(<TodoForm onCreate={() => {}} />);
     const input = wrapper.find('input');
