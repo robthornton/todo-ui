@@ -6,13 +6,13 @@ import './TodoList.css';
 
 export interface TodoListProps {
   todos: Todo[];
-  completeAction: CompleteCallback;
+  onComplete: CompleteCallback;
   onDelete: DeleteCallback;
 }
 
 function TodoList({
   todos,
-  completeAction,
+  onComplete,
   onDelete
 }: TodoListProps): React.ReactElement {
   return (
@@ -21,7 +21,7 @@ function TodoList({
         <TodoItem
           key={todo.id}
           todo={todo}
-          completeAction={completeAction}
+          onComplete={onComplete}
           onDelete={onDelete}
         />
       ))}

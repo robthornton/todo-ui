@@ -5,13 +5,13 @@ import './TodoItem.css';
 
 export interface TodoItemProps {
   todo: Todo;
-  completeAction: CompleteCallback;
+  onComplete: CompleteCallback;
   onDelete: DeleteCallback;
 }
 
 function TodoItem({
   todo,
-  completeAction,
+  onComplete,
   onDelete
 }: TodoItemProps): React.ReactElement {
   return (
@@ -22,7 +22,7 @@ function TodoItem({
       <button
         type="button"
         className="complete primary-button"
-        onClick={() => completeAction(todo)}
+        onClick={() => onComplete(todo)}
       >
         Complete
       </button>

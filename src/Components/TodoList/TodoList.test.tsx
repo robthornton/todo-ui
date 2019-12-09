@@ -16,7 +16,7 @@ describe('TodoList component', () => {
     const wrapper = render(
       <TodoList
         todos={[]}
-        completeAction={completeFunction}
+        onComplete={completeFunction}
         onDelete={deleteFunction}
       />
     );
@@ -29,7 +29,7 @@ describe('TodoList component', () => {
     const wrapper = render(
       <TodoList
         todos={[]}
-        completeAction={completeFunction}
+        onComplete={completeFunction}
         onDelete={deleteFunction}
       />
     );
@@ -43,7 +43,7 @@ describe('TodoList component', () => {
     const wrapper = shallow(
       <TodoList
         todos={[]}
-        completeAction={completeFunction}
+        onComplete={completeFunction}
         onDelete={deleteFunction}
       />
     );
@@ -57,7 +57,7 @@ describe('TodoList component', () => {
     const wrapper = render(
       <TodoList
         todos={tasks}
-        completeAction={completeFunction}
+        onComplete={completeFunction}
         onDelete={deleteFunction}
       />
     );

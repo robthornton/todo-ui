@@ -39,11 +39,7 @@ function App({api}: AppProps) {
     <div className={styles.body}>
       <Title text="To-do" />
       <TodoForm createAction={addTodo} />
-      <TodoList
-        todos={todos}
-        completeAction={completeTodo}
-        onDelete={deleteTodo}
-      />
+      <TodoList todos={todos} onComplete={completeTodo} onDelete={deleteTodo} />
     </div>
   );
 }
