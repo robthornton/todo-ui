@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      test:
+      name: Tests
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run tests
+          run: yarn test --watchAll=false
