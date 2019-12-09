@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {TodoForm, Title, TodoList} from './components';
+import {CreateTodoInput, Title, TodoList} from './components';
 
 import styles from './App.module.css';
 import {Todo, TodoAPI} from './types';
@@ -38,7 +38,7 @@ function App({api}: AppProps) {
   return (
     <div className={styles.body}>
       <Title text="To-do" />
-      <TodoForm onCreate={addTodo} />
+      <CreateTodoInput onCreate={addTodo} />
       <TodoList todos={todos} onComplete={completeTodo} onDelete={deleteTodo} />
     </div>
   );

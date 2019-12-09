@@ -1,14 +1,14 @@
-import React, {useState, ChangeEvent, KeyboardEvent, useCallback} from 'react';
+import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 
 import {CreateCallback} from '../../types';
-import styles from './TodoForm.module.css';
+import styles from './CreateTodoInput.css';
 
-export interface TodoFormProps {
+export interface CreateTodoInputProps {
   onCreate: CreateCallback;
 }
 
 // rename to CreateInput
-function TodoForm({onCreate}: TodoFormProps): JSX.Element {
+export function CreateTodoInput({onCreate}: CreateTodoInputProps): JSX.Element {
   const [text, setText] = useState('');
 
   // handleOnClick vs onCreate vs onSubmit
@@ -38,5 +38,3 @@ function TodoForm({onCreate}: TodoFormProps): JSX.Element {
     </div>
   );
 }
-
-export default TodoForm;
