@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, shallow} from 'enzyme';
 
-import Title from './Title';
+import {Title} from './Title';
 
 describe('title component', () => {
   it('should render without error', () => {
