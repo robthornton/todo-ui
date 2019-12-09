@@ -17,7 +17,7 @@ describe('TodoList component', () => {
       <TodoList
         todos={[]}
         completeAction={completeFunction}
-        deleteAction={deleteFunction}
+        onDelete={deleteFunction}
       />
     );
     expect(wrapper).toBeTruthy();
@@ -30,7 +30,7 @@ describe('TodoList component', () => {
       <TodoList
         todos={[]}
         completeAction={completeFunction}
-        deleteAction={deleteFunction}
+        onDelete={deleteFunction}
       />
     );
     const listItems = wrapper.find('li');
@@ -44,7 +44,7 @@ describe('TodoList component', () => {
       <TodoList
         todos={[]}
         completeAction={completeFunction}
-        deleteAction={deleteFunction}
+        onDelete={deleteFunction}
       />
     );
     const ul = wrapper.find('ul');
@@ -58,7 +58,7 @@ describe('TodoList component', () => {
       <TodoList
         todos={tasks}
         completeAction={completeFunction}
-        deleteAction={deleteFunction}
+        onDelete={deleteFunction}
       />
     );
     const listItems = wrapper.find('li');

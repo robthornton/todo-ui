@@ -42,7 +42,7 @@ function App({api}: AppProps) {
       <TodoList
         todos={todos}
         completeAction={completeTodo}
-        deleteAction={deleteTodo}
+        onDelete={deleteTodo}
       />
     </div>
   );

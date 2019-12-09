@@ -6,13 +6,13 @@ import './TodoItem.css';
 export interface TodoItemProps {
   todo: Todo;
   completeAction: CompleteCallback;
-  deleteAction: DeleteCallback;
+  onDelete: DeleteCallback;
 }
 
 function TodoItem({
   todo,
   completeAction,
-  deleteAction
+  onDelete
 }: TodoItemProps): React.ReactElement {
   return (
     <li className="todo">
@@ -30,7 +30,7 @@ function TodoItem({
         type="button"
         className="delete secondary-button"
         onClick={() => {
-          if (deleteAction) deleteAction(todo.id);
+          if (onDelete) onDelete(todo.id);
         }}
       >
         Delete

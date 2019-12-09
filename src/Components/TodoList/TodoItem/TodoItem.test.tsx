@@ -8,18 +8,14 @@ describe('Todo component', () => {
   it('renders without crashing', () => {
     expect(
       render(
-        <TodoItem
-          todo={todo}
-          completeAction={() => {}}
-          deleteAction={() => {}}
-        />
+        <TodoItem todo={todo} completeAction={() => {}} onDelete={() => {}} />
       )
     );
   });
 
   it('renders with correcct text', () => {
     const wrapper = shallow(
-      <TodoItem todo={todo} completeAction={() => {}} deleteAction={() => {}} />
+      <TodoItem todo={todo} completeAction={() => {}} onDelete={() => {}} />
     );
     const input = wrapper.find('div');
     expect(input.text()).toBe('Example');
@@ -27,7 +23,7 @@ describe('Todo component', () => {
 
   it('renders with input completed class', () => {
     const wrapper = shallow(
-      <TodoItem todo={todo} completeAction={() => {}} deleteAction={() => {}} />
+      <TodoItem todo={todo} completeAction={() => {}} onDelete={() => {}} />
     );
     const input = wrapper.find('div');
     expect(input.hasClass('completed')).toBe(true);
@@ -35,7 +31,7 @@ describe('Todo component', () => {
 
   it('should render without error delete button is clicked', () => {
     const wrapper = mount(
-      <TodoItem todo={todo} completeAction={() => {}} deleteAction={() => {}} />
+      <TodoItem todo={todo} completeAction={() => {}} onDelete={() => {}} />
     );
     const completeButton = wrapper.find('button.delete');
     expect(completeButton.simulate('click')).toBeTruthy();
@@ -47,7 +43,7 @@ describe('Todo component', () => {
       <TodoItem
         todo={todo}
         completeAction={() => {}}
-        deleteAction={deleteFunction}
+        onDelete={deleteFunction}
       />
     );
     const completeButton = wrapper.find('button.delete');
@@ -58,7 +54,7 @@ describe('Todo component', () => {
   it('should use callback when complete button is clicked', () => {
     const callback = jest.fn();
     const wrapper = mount(
-      <TodoItem todo={todo} completeAction={callback} deleteAction={() => {}} />
+      <TodoItem todo={todo} completeAction={callback} onDelete={() => {}} />
     );
     const completeButton = wrapper.find('button.complete');
     completeButton.simulate('click');

@@ -7,13 +7,13 @@ import './TodoList.css';
 export interface TodoListProps {
   todos: Todo[];
   completeAction: CompleteCallback;
-  deleteAction: DeleteCallback;
+  onDelete: DeleteCallback;
 }
 
 function TodoList({
   todos,
   completeAction,
-  deleteAction
+  onDelete
 }: TodoListProps): React.ReactElement {
   return (
     <ul className="task-list">
@@ -22,7 +22,7 @@ function TodoList({
           key={todo.id}
           todo={todo}
           completeAction={completeAction}
-          deleteAction={deleteAction}
+          onDelete={onDelete}
         />
       ))}
     </ul>
