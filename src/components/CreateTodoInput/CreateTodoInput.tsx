@@ -1,7 +1,7 @@
 import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 
 import {CreateCallback} from '../../types';
-import styles from './CreateTodoInput.css';
+import styles from './CreateTodoInput.module.css';
 
 export interface CreateTodoInputProps {
   onCreate: CreateCallback;

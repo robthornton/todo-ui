@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {CreateTodoInput, Title, TodoList} from './components';
-
-import styles from './App.css';
 import {Todo, TodoAPI} from './types';
+
+import * as styles from './App.module.css';
 
 export interface AppProps {
   api: TodoAPI;
