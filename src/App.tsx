@@ -1,8 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-// import {CreateTodoInput, Title, TodoList} from './components';
-import {CreateTodoInput} from './components/CreateTodoInput/CreateTodoInput';
-import {Title} from './components/Title/Title';
-import {TodoList} from './components/TodoList/TodoList';
+import {CreateTodoInput, Title, TodoList} from './components';
 
 import styles from './App.css';
 import {Todo, TodoAPI} from './types';
