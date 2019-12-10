@@ -3,21 +3,13 @@ name: CI
 on: [push]
 
 jobs:
-    build:
-      name: Build
-      runs-on: ubuntu-latest
-      steps:
-          - name: Checkout repository
-            uses: actions/checkout@v1
-          - name: Run yarn install
-            run: yarn install
-    
     test:
       name: Tests
-      needs: [build]
       runs-on: ubuntu-latest
       steps:
         - name: Checkout repository
           uses: actions/checkout@v1
+        - name: Run yarn install
+          run: yarn install
         - name: Run tests with yarn
           run: yarn test --watchAll=false
