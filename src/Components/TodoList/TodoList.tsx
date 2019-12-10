@@ -10,7 +10,7 @@ export interface TodoListProps {
   onDelete: DeleteCallback;
 }
 
-function TodoList({
+export function TodoList({
   todos,
   onComplete,
   onDelete
@@ -28,5 +28,3 @@ function TodoList({
     </ul>
   );
 }
-
-export default TodoList;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, shallow} from 'enzyme';
 
-import TodoList from './TodoList';
+import {TodoList} from './TodoList';
 
 describe('TodoList component', () => {
   const tasks = [
