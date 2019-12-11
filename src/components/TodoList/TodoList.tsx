@@ -1,8 +1,9 @@
 import React from 'react';
 
-import TodoItem from './TodoItem/TodoItem';
+import {TodoItem} from '../TodoItem';
 import {Todo, CompleteCallback, DeleteCallback} from '../../types';
-import styles from './TodoList.module.css';
+import {List} from '../List';
+import {ListItem} from '../ListItem';
 
 export interface TodoListProps {
   todos: Todo[];
@@ -15,16 +16,15 @@ export function TodoList({
   onComplete,
   onDelete
 }: TodoListProps): React.ReactElement {
-  return (
-    <ul className={styles.list}>
-      {todos.map((todo: Todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onComplete={onComplete}
-          onDelete={onDelete}
-        />
-      ))}
-    </ul>
-  );
+  const itemRenderer = (i: number): React.ReactElement => {
+    const todo = todos[i];
+
+    return (
+      <ListItem key={todo.id}>
+        <TodoItem todo={todo} onComplete={onComplete} onDelete={onDelete} />
+      </ListItem>
+    );
+  };
+
+  return <List count={todos.length} itemRenderer={itemRenderer} />;
 }

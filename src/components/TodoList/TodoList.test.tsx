@@ -37,20 +37,6 @@ describe('TodoList component', () => {
     expect(listItems).toHaveLength(0);
   });
 
-  it('list has "task-list" class', () => {
-    const completeFunction = jest.fn();
-    const deleteFunction = jest.fn();
-    const wrapper = shallow(
-      <TodoList
-        todos={[]}
-        onComplete={completeFunction}
-        onDelete={deleteFunction}
-      />
-    );
-    const ul = wrapper.find('ul');
-    expect(ul.hasClass('task-list')).toBe(true);
-  });
-
   it('should have three todos', () => {
     const completeFunction = jest.fn();
     const deleteFunction = jest.fn();
