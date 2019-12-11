@@ -1,6 +1,8 @@
 import {CreateTodoInput} from './CreateTodoInput/CreateTodoInput';
+import {List} from './List';
+import {ListItem} from './ListItem';
 import {Title} from './Title';
-import Todo from './TodoList/TodoItem/TodoItem';
-import {TodoList} from './TodoList/TodoList';
+import {TodoItem} from './TodoItem';
+import {TodoList} from './TodoList';
 
-export {CreateTodoInput, Title, Todo, TodoList};
+export {CreateTodoInput, List, ListItem, Title, TodoItem, TodoList};
