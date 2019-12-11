@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './List.module.css';
 
 type ItemRenderer = (item: any) => React.ReactElement;
 
@@ -9,7 +10,7 @@ type ListProps = {
 
 export function List({count, itemRenderer}: ListProps): React.ReactElement {
   return (
-    <ul>
+    <ul className={styles.list}>
       {Array(count)
         .fill(null)
         .map((_, i) => itemRenderer(i))}
