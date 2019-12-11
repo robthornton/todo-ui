@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem/TodoItem';
 import {Todo, CompleteCallback, DeleteCallback} from '../../types';
-import './TodoList.css';
+import styles from './TodoList.module.css';
 
 export interface TodoListProps {
   todos: Todo[];
@@ -16,7 +16,7 @@ export function TodoList({
   onDelete
 }: TodoListProps): React.ReactElement {
   return (
-    <ul className="task-list">
+    <ul className={styles.list}>
       {todos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}

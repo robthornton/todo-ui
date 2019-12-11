@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Todo, CompleteCallback, DeleteCallback} from '../../../types';
-import './TodoItem.css';
+import styles from './TodoItem.module.css';
 
 export interface TodoItemProps {
   todo: Todo;
@@ -15,8 +15,12 @@ function TodoItem({
   onDelete
 }: TodoItemProps): React.ReactElement {
   return (
-    <li className="todo">
-      <div className={todo.completed ? 'completed' : undefined}>
+    <li className={styles.item}>
+      <div
+        className={`${styles.div} ${
+          todo.completed ? styles.complete : undefined
+        }`}
+      >
         {todo.task}
       </div>
       <button
