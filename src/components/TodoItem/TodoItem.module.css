@@ -1,0 +1,13 @@
+.item {
+  list-style-type: none;
+}
+
+.div {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
+}
+
+.complete {
+  text-decoration: line-through;
+}
