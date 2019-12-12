@@ -1,6 +1,6 @@
 import React from 'react';
 import {TodoItem} from './TodoItem';
-import {mount, render, shallow} from 'enzyme';
+import {render, shallow} from 'enzyme';
 
 describe('Todo component', () => {
   const todo = {id: 0, task: 'Example', completed: true};
