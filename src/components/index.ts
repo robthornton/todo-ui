@@ -6,4 +6,4 @@ import {Title} from './Title';
 import {TodoItem} from './TodoItem';
 import {TodoList} from './TodoList';
 
-export {CreateTodoInput, List, ListItem, Title, TodoItem, TodoList};
+export {Button, CreateTodoInput, List, ListItem, Title, TodoItem, TodoList};
