@@ -12,6 +12,7 @@ function App({api}: AppProps) {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   async function addTodo(todo: Todo) {
+    todo.completed = false;
     await api.add(todo);
     await fetchTodos();
   }
